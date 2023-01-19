@@ -7,8 +7,8 @@ function setup(){
   frameRate(1);
   //noStroke();
 
-  w = 0
-  h = -70
+  var w = 0
+  var h = -70
   for (var i = 0; i < 24; i++){
 	w += 130;
 	if (i % 6 == 0){
@@ -52,19 +52,28 @@ function draw(){
   background(0);
   fill(100,150);
 
-  for (var i = 0; i < second(); i++){
-    square(second_xs[i], second_ys[i], 40);
-  }
-
-  woffset = (hour() % 6) * 130;
-  hoffset = (hour() % 4) * 130;
-  for (var i = 0; i < minute(); i++){
-    square(minute_xs[i]+woffset, minute_ys[i]+hoffset, 13);
-	console.log(minute())
-  }
-
+  var woffset = 0;
+  var hoffset = 0;
   for (var i = 0; i < hour(); i++){
     square(hour_xs[i], hour_ys[i], 121);
+    woffset += 130;
+    if ((i+1) % 6 == 0){
+      hoffset += 130;
+    }
+    if ((i+1) % 4 == 0){
+      woffset = 0
+    }
+  }
+
+  for (var i = 0; i < minute(); i++){
+    square(minute_xs[i]+woffset, minute_ys[i]+hoffset, 13);
+    console.log(minute());
+    console.log(woffset);
+    console.log(hoffset);
+  }
+
+  for (var i = 0; i < second(); i++){
+    square(second_xs[i], second_ys[i], 40);
   }
 
 }
