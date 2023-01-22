@@ -59,8 +59,6 @@ function draw(){
     woffset += 130;
     if ((i+1) % 6 == 0){
       hoffset += 130;
-    }
-    if ((i+1) % 4 == 0){
       woffset = 0
     }
   }
