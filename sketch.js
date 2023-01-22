@@ -68,8 +68,6 @@ function draw(){
   for (var i = 0; i < minute(); i++){
     square(minute_xs[i]+woffset, minute_ys[i]+hoffset, 13);
     console.log(minute());
-    console.log(woffset);
-    console.log(hoffset);
   }
 
   for (var i = 0; i < second(); i++){
